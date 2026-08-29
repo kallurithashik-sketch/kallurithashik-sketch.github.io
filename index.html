@@ -1,1 +1,1229 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>K Thashik | Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* =========================
+           GLOBAL
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f5f0e8;
+            color: #111;
+            font-family: "Space Mono", monospace;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ::selection {
+            background: #111;
+            color: #ff4d00;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================== */
+
+        nav {
+            width: 100%;
+            border-bottom: 5px solid #111;
+            background: #ff4d00;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 5%;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: "Anton", sans-serif;
+            font-size: 30px;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            background: #f5f0e8;
+            border: 3px solid #111;
+
+            padding: 10px 15px;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            background: #111;
+            color: white;
+
+            transform: translate(-3px, -3px);
+
+            box-shadow: 4px 4px 0 white;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 90vh;
+
+            padding: 80px 5%;
+
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+
+            gap: 50px;
+
+            align-items: center;
+        }
+
+        .hero-text {
+            position: relative;
+        }
+
+        .small-label {
+            display: inline-block;
+
+            background: #111;
+            color: white;
+
+            padding: 10px 15px;
+
+            font-weight: bold;
+
+            margin-bottom: 25px;
+
+            transform: rotate(-2deg);
+        }
+
+        .hero h1 {
+            font-family: "Anton", sans-serif;
+
+            font-size: clamp(70px, 11vw, 170px);
+
+            line-height: 0.85;
+
+            text-transform: uppercase;
+
+            letter-spacing: -3px;
+        }
+
+        .hero h1 span {
+            color: #ff4d00;
+
+            -webkit-text-stroke: 3px #111;
+        }
+
+        .hero-description {
+            max-width: 650px;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            margin-top: 35px;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           HERO PROFILE CARD
+        ========================== */
+
+        .hero-card {
+            border: 5px solid #111;
+
+            background: #00e5ff;
+
+            padding: 25px;
+
+            box-shadow: 15px 15px 0 #111;
+
+            transform: rotate(2deg);
+        }
+
+        .profile-placeholder {
+            min-height: 450px;
+
+            border: 4px solid #111;
+
+            background:
+                repeating-linear-gradient(
+                    45deg,
+                    #fff 0,
+                    #fff 10px,
+                    #111 10px,
+                    #111 12px
+                );
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 20px;
+        }
+
+        .profile-placeholder div {
+            background: #ff4d00;
+
+            border: 4px solid #111;
+
+            padding: 20px;
+
+            font-family: "Anton", sans-serif;
+
+            font-size: 35px;
+
+            box-shadow: 8px 8px 0 #111;
+        }
+
+
+        /* =========================
+           MARQUEE
+        ========================== */
+
+        .marquee {
+            background: #111;
+
+            color: #ff4d00;
+
+            border-top: 5px solid #111;
+            border-bottom: 5px solid #111;
+
+            padding: 15px 0;
+
+            overflow: hidden;
+
+            white-space: nowrap;
+        }
+
+        .marquee-track {
+            display: inline-block;
+
+            animation: move 18s linear infinite;
+
+            font-family: "Anton", sans-serif;
+
+            font-size: 35px;
+
+            word-spacing: 20px;
+        }
+
+        @keyframes move {
+
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================== */
+
+        section {
+            padding: 100px 5%;
+        }
+
+        .section-title {
+            display: inline-block;
+
+            font-family: "Anton", sans-serif;
+
+            font-size: clamp(55px, 8vw, 100px);
+
+            text-transform: uppercase;
+
+            line-height: 0.9;
+
+            margin-bottom: 60px;
+
+            border-bottom: 8px solid #ff4d00;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 35px;
+        }
+
+        .brutal-box {
+            border: 5px solid #111;
+
+            padding: 35px;
+
+            background: white;
+
+            box-shadow: 10px 10px 0 #111;
+        }
+
+        .brutal-box.orange {
+            background: #ff4d00;
+        }
+
+        .brutal-box.blue {
+            background: #00e5ff;
+        }
+
+        .brutal-box h3 {
+            font-family: "Anton", sans-serif;
+
+            font-size: 40px;
+
+            margin-bottom: 20px;
+        }
+
+        .brutal-box p {
+            line-height: 1.8;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================== */
+
+        .skills-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .skill {
+            border: 4px solid #111;
+
+            background: white;
+
+            padding: 30px 20px;
+
+            min-height: 150px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            font-family: "Anton", sans-serif;
+
+            font-size: 28px;
+
+            box-shadow: 7px 7px 0 #111;
+
+            transition: 0.2s;
+        }
+
+        .skill:hover {
+            background: #ff4d00;
+
+            transform: translate(-5px, -5px);
+
+            box-shadow: 12px 12px 0 #111;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================== */
+
+        .projects {
+            background: #00e5ff;
+
+            border-top: 5px solid #111;
+
+            border-bottom: 5px solid #111;
+        }
+
+        .project-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 40px;
+        }
+
+        .project {
+            background: #f5f0e8;
+
+            border: 5px solid #111;
+
+            padding: 30px;
+
+            box-shadow: 12px 12px 0 #111;
+
+            transition: 0.2s;
+        }
+
+        .project:hover {
+            transform: translate(-6px, -6px);
+
+            box-shadow: 18px 18px 0 #111;
+        }
+
+        .project-number {
+            font-family: "Anton", sans-serif;
+
+            font-size: 70px;
+
+            color: #ff4d00;
+
+            -webkit-text-stroke: 2px #111;
+        }
+
+        .project h3 {
+            font-family: "Anton", sans-serif;
+
+            font-size: 40px;
+
+            margin: 15px 0;
+        }
+
+        .project p {
+            line-height: 1.7;
+
+            font-weight: bold;
+        }
+
+        .tags {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 20px;
+        }
+
+        .tag {
+            border: 3px solid #111;
+
+            padding: 7px 10px;
+
+            background: #ff4d00;
+
+            font-size: 13px;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           EDUCATION
+        ========================== */
+
+        .timeline {
+            max-width: 900px;
+        }
+
+        .timeline-item {
+            border-left: 7px solid #111;
+
+            padding: 0 0 45px 35px;
+
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+
+            position: absolute;
+
+            width: 22px;
+            height: 22px;
+
+            background: #ff4d00;
+
+            border: 4px solid #111;
+
+            left: -19px;
+
+            top: 0;
+        }
+
+        .timeline-item h3 {
+            font-family: "Anton", sans-serif;
+
+            font-size: 38px;
+        }
+
+        .timeline-item p {
+            margin-top: 10px;
+
+            font-weight: bold;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact {
+            background: #ff4d00;
+
+            border-top: 5px solid #111;
+        }
+
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+        }
+
+        .contact h2 {
+            font-family: "Anton", sans-serif;
+
+            font-size: clamp(60px, 9vw, 120px);
+
+            line-height: 0.85;
+        }
+
+        .contact-info {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 15px;
+        }
+
+        .contact-link {
+            border: 4px solid #111;
+
+            background: #f5f0e8;
+
+            padding: 18px;
+
+            font-weight: bold;
+
+            box-shadow: 6px 6px 0 #111;
+
+            transition: 0.2s;
+        }
+
+        .contact-link:hover {
+            transform: translate(6px, 6px);
+
+            box-shadow: none;
+
+            background: #00e5ff;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #111;
+
+            color: white;
+
+            padding: 30px 5%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card {
+                max-width: 600px;
+
+                width: 100%;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+
+        @media (max-width: 550px) {
+
+            nav {
+                padding: 15px 4%;
+            }
+
+            .logo {
+                font-size: 25px;
+            }
+
+            .hero {
+                padding: 60px 5%;
+            }
+
+            .hero h1 {
+                font-size: 75px;
+            }
+
+            .profile-placeholder {
+                min-height: 300px;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .brutal-box,
+            .project {
+                padding: 25px;
+            }
+
+            .contact h2 {
+                font-size: 70px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav>
+
+        <div class="logo">
+            K.THASHIK
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#about">ABOUT</a>
+            </li>
+
+            <li>
+                <a href="#skills">SKILLS</a>
+            </li>
+
+            <li>
+                <a href="#projects">PROJECTS</a>
+            </li>
+
+            <li>
+                <a href="#education">EDUCATION</a>
+            </li>
+
+            <li>
+                <a href="#contact">CONTACT</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
+
+    <header class="hero">
+
+        <div class="hero-text">
+
+            <div class="small-label">
+                PORTFOLIO / 2026
+            </div>
+
+            <h1>
+                K
+                <br>
+                <span>THASHIK</span>
+            </h1>
+
+            <p class="hero-description">
+                Hi! I'm K Thashik — a student and aspiring developer
+                who enjoys building creative digital experiences,
+                learning technology and turning ideas into projects.
+            </p>
+
+        </div>
+
+
+        <!-- PROFILE CARD -->
+
+        <div class="hero-card">
+
+            <div class="profile-placeholder">
+
+                <div>
+                    K
+                    <br>
+                    THASHIK
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MARQUEE
+    ========================== -->
+
+    <div class="marquee">
+
+        <div class="marquee-track">
+
+            CREATE • CODE • LEARN • BUILD •
+            CREATE • CODE • LEARN • BUILD •
+            CREATE • CODE • LEARN • BUILD •
+            CREATE • CODE • LEARN • BUILD •
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         ABOUT SECTION
+    ========================== -->
+
+    <section id="about">
+
+        <h2 class="section-title">
+            ABOUT ME
+        </h2>
+
+        <div class="about-grid">
+
+
+            <div class="brutal-box orange">
+
+                <h3>
+                    WHO AM I?
+                </h3>
+
+                <p>
+                    I'm K Thashik, a student passionate about
+                    technology, programming and creative digital
+                    projects. I enjoy experimenting with new ideas
+                    and improving my skills through practical projects.
+                </p>
+
+            </div>
+
+
+            <div class="brutal-box blue">
+
+                <h3>
+                    MY MINDSET
+                </h3>
+
+                <p>
+                    Learn something new. Build something useful.
+                    Make mistakes. Improve. Repeat.
+                    My goal is to continuously develop my technical
+                    and creative skills.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS SECTION
+    ========================== -->
+
+    <section id="skills">
+
+        <h2 class="section-title">
+            SKILLS
+        </h2>
+
+        <div class="skills-grid">
+
+            <div class="skill">
+                C PROGRAMMING
+            </div>
+
+            <div class="skill">
+                PYTHON
+            </div>
+
+            <div class="skill">
+                HTML
+            </div>
+
+            <div class="skill">
+                CSS
+            </div>
+
+            <div class="skill">
+                JAVASCRIPT
+            </div>
+
+            <div class="skill">
+                DATA STRUCTURES
+            </div>
+
+            <div class="skill">
+                GIT
+            </div>
+
+            <div class="skill">
+                PROBLEM SOLVING
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS SECTION
+    ========================== -->
+
+    <section id="projects" class="projects">
+
+        <h2 class="section-title">
+            PROJECTS
+        </h2>
+
+        <div class="project-grid">
+
+
+            <!-- PROJECT 01 -->
+
+            <article class="project">
+
+                <div class="project-number">
+                    01
+                </div>
+
+                <h3>
+                    EVENT BUDGET MANAGEMENT
+                </h3>
+
+                <p>
+                    A C programming project designed to manage
+                    event expenses, calculate budgets and store
+                    financial information efficiently.
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">
+                        C
+                    </span>
+
+                    <span class="tag">
+                        FILE HANDLING
+                    </span>
+
+                    <span class="tag">
+                        STRUCTURES
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROJECT 02 -->
+
+            <article class="project">
+
+                <div class="project-number">
+                    02
+                </div>
+
+                <h3>
+                    MINI ENCRYPTION PACKAGE
+                </h3>
+
+                <p>
+                    A Python package containing different
+                    encryption and encoding modules such as
+                    Caesar cipher, reverse cipher and binary encoding.
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">
+                        PYTHON
+                    </span>
+
+                    <span class="tag">
+                        ENCRYPTION
+                    </span>
+
+                    <span class="tag">
+                        PACKAGES
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROJECT 03 -->
+
+            <article class="project">
+
+                <div class="project-number">
+                    03
+                </div>
+
+                <h3>
+                    PERSONAL PORTFOLIO
+                </h3>
+
+                <p>
+                    A brutalist personal portfolio website designed
+                    to showcase my skills, projects, education and
+                    contact information.
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">
+                        HTML
+                    </span>
+
+                    <span class="tag">
+                        CSS
+                    </span>
+
+                    <span class="tag">
+                        JAVASCRIPT
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROJECT 04 -->
+
+            <article class="project">
+
+                <div class="project-number">
+                    04
+                </div>
+
+                <h3>
+                    MORE COMING SOON...
+                </h3>
+
+                <p>
+                    Currently learning, experimenting and building
+                    new projects. This section will keep growing.
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">
+                        LEARNING
+                    </span>
+
+                    <span class="tag">
+                        BUILDING
+                    </span>
+
+                    <span class="tag">
+                        2026
+                    </span>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EDUCATION SECTION
+    ========================== -->
+
+    <section id="education">
+
+        <h2 class="section-title">
+            EDUCATION
+        </h2>
+
+        <div class="timeline">
+
+
+            <div class="timeline-item">
+
+                <h3>
+                    COLLEGE / UNIVERSITY
+                </h3>
+
+                <p>
+                    Currently pursuing my education and developing
+                    my knowledge in programming, data structures,
+                    computer science and related technologies.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>
+                    PROGRAMMING JOURNEY
+                </h3>
+
+                <p>
+                    Started learning programming through C and Python,
+                    followed by web development and practical projects.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>
+                    WHAT'S NEXT?
+                </h3>
+
+                <p>
+                    Building more projects, improving problem-solving
+                    skills and exploring modern technologies.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT SECTION
+    ========================== -->
+
+    <section id="contact" class="contact">
+
+        <div class="contact-grid">
+
+
+            <div>
+
+                <h2>
+                    LET'S
+                    <br>
+                    TALK.
+                </h2>
+
+            </div>
+
+
+            <div class="contact-info">
+
+
+                <!-- Replace with your email -->
+
+                <a
+                    href="mailto:yourmail@example.com"
+                    class="contact-link"
+                >
+                    ✉ EMAIL →
+                </a>
+
+
+                <!-- Replace with your GitHub -->
+
+                <a
+                    href="https://github.com/"
+                    target="_blank"
+                    class="contact-link"
+                >
+                    ◉ GITHUB →
+                </a>
+
+
+                <!-- Replace with your LinkedIn -->
+
+                <a
+                    href="https://www.linkedin.com/"
+                    target="_blank"
+                    class="contact-link"
+                >
+                    in LINKEDIN →
+                </a>
+
+
+                <!-- Replace with your Instagram -->
+
+                <a
+                    href="https://www.instagram.com/"
+                    target="_blank"
+                    class="contact-link"
+                >
+                    ◎ INSTAGRAM →
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div>
+            © 2026 K THASHIK
+        </div>
+
+        <div>
+            BUILT WITH HTML + CSS + JS
+        </div>
+
+        <div>
+            NO BORING DESIGNS.
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        console.log("K Thashik Portfolio Loaded!");
+
+        // Small hover/click interaction
+        document.querySelectorAll(".skill").forEach(skill => {
+
+            skill.addEventListener("click", function () {
+
+                this.style.transform = "translate(3px, 3px)";
+
+                setTimeout(() => {
+
+                    this.style.transform = "";
+
+                }, 150);
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
+```
